@@ -1,0 +1,28 @@
+1、添加节点： 
+           for (int i = 0; i < 4; i++)
+            {
+                TreeNode node1 = treeView1.Nodes.Add("父亲" + i.ToString());
+                for (int j = 0; j < 3; j++)
+                {
+                    TreeNode node2 = new TreeNode("儿子" + j.ToString());
+                    node1.Nodes.Add(node2);
+                    for (int p = 0; p < 2; p++)
+                    {
+                        TreeNode node3 = new TreeNode("孙子" + p.ToString());
+                        node2.Nodes.Add(node3);
+                    }
+                }
+            }
+2、添加图标：
+			try
+            {
+                if (Image.FromFile(@"..\..\Resources\tree_NodeCollaps.png") != null)
+                {
+                    imageList.Images.Add(Image.FromFile(@"..\..\Resources\tree_NodeCollaps.png"));
+                }
+            }
+            catch (Exception ex)
+            {
+            }		
+			treeView1.ImageList = imageList;			
+			
